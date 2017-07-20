@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git(url: 'https://github.com/compilerking420/cproj.git', branch: 'master')
+        echo 'Cloning repo.'
       }
     }
     stage('Build') {
