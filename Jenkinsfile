@@ -36,7 +36,7 @@ pipeline {
         )
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         echo 'Test result:'
       }
