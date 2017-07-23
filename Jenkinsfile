@@ -26,9 +26,8 @@ pipeline {
             
           },
           "Test1": {
-            sh './cprog'
-            catchError() {
-              error 'Error in binary running.'
+            ws(dir: 'dir work') {
+              sh './cprog'
             }
             
             
