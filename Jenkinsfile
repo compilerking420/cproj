@@ -28,6 +28,22 @@ pipeline {
           "Test1": {
             sh './cproj'
             
+          },
+          "Test2": {
+            sh './cproj'
+            
+          },
+          "Test3": {
+            sh './cproj'
+            
+          },
+          "Test4": {
+            sh './cproj'
+            
+          },
+          "Test5": {
+            sh './cproj'
+            
           }
         )
       }
