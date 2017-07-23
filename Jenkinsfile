@@ -27,7 +27,7 @@ pipeline {
           },
           "Test1": {
             ws(dir: 'dir work') {
-              sh './cprog'
+              sh './cproj'
             }
             
             
