@@ -28,14 +28,18 @@ pipeline {
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
-            post {
-              failure {
-                echo "Binary test failed."
+            post() {
+              failure() {
+                echo 'Binary test failed.'
               }
-              success {
-                echo "Binary test successful."
+              
+              success() {
+                echo 'Binary test successful.'
               }
+              
             }
+            
+            
           },
           "Test2": {
             sh './cproj'
