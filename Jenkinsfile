@@ -26,6 +26,7 @@ pipeline {
             
           },
           "Test1": {
+            echo 'test 1 running...'
             sh './cproj'
             
           },
