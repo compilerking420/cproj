@@ -54,9 +54,11 @@ pipeline {
         ) // Parallel
       } // steps
     } // stage smoke tests
-    stage('error') {
+    stage('Feedback') {
       steps {
         echo 'Test result:'
+        sh 'echo "Failures: $FAILURES"'
+        sh 'echo "Successful: $SUCCESSFUL"'
       } // steps
     } // stage error
   } // stages
