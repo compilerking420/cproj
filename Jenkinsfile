@@ -19,13 +19,14 @@ pipeline {
       }
     }
     stage('Binary smoke tests') {
-      sh '$FAILURES = 0'
-      sh '$SUCCESSFUL = 0'
       steps {
+        "Preparing counters": {
+            sh 'FAILURES = 0'
+            sh 'SUCCESSFUL = 0'
+        }
         parallel(
           "Binary smoke tests": {
             echo 'Running binary smoke tests...'
-            
           },
           "Test1": {
             echo 'test 1 running...'
