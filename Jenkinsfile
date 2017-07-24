@@ -57,10 +57,10 @@ pipeline {
     stage('error') {
       steps {
         echo 'Test result:'
-      } // stage
-    } // stages
-  
+      } // steps
+    } // stage error
+  } // stages
   environment {
     server = 'server'
-  }
-}
+  } // env
+} // Pipeline
