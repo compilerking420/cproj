@@ -9,6 +9,7 @@ pipeline {
     }
     stage('Build') {
       steps {
+        sh '#!/bin/bash -xe'
         sh 'gcc -v -g -Wall -c main.c && gcc -v -g -Wall -c rndnum.c && gcc -v -g -o cproj main.o rndnum.o'
       }
     }
