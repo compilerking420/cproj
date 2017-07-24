@@ -19,8 +19,8 @@ pipeline {
       }
     }
     stage('Binary smoke tests') {
-      def FAILURES = 0;
-      def SUCCESSFUL = 0;
+      int FAILURES = 0;
+      int SUCCESSFUL = 0;
       steps {
         parallel(
           "Binary smoke tests": {
