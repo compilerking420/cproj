@@ -20,8 +20,8 @@ pipeline {
     }
     stage('Preparing test counters') {
       steps{
-         sh 'export FAILURES = 0'
-         sh 'export SUCCESSFUL = 0'        
+         sh 'export FAILURES=0'
+         sh 'export SUCCESSFUL=0'        
       }
     }
     stage('Binary smoke tests') {
