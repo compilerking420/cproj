@@ -19,6 +19,8 @@ pipeline {
       }
     }
     stage('Binary smoke tests') {
+      def FAILURES = 0;
+      def SUCCESSFUL = 0;
       steps {
         parallel(
           "Binary smoke tests": {
@@ -28,18 +30,7 @@ pipeline {
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
-            post() {
-              failure() {
-                echo 'Binary test failed.'
-              }
-              
-              success() {
-                echo 'Binary test successful.'
-              }
-              
-            }
-            
-            
+                       
           },
           "Test2": {
             sh './cproj'
