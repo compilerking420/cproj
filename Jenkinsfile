@@ -33,7 +33,7 @@ pipeline {
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
-            sh 'if [ $? == 0 ]; then { echo "Successful run." && ((SUCCESSFUL++)) }; else { echo "Failed run." && ((FAILURES++)) }; fi'
+            sh 'if [ $? -eq 0 ]; then { echo "Successful run." && ((SUCCESSFUL++)) }; else { echo "Failed run." && ((FAILURES++)) }; fi'
           },
           "Test2": {
             sh './cproj'
