@@ -18,12 +18,14 @@ pipeline {
         fileExists 'cproj'
       }
     }
+    stage('Preparing test counters') {
+      steps{
+         sh 'FAILURES = 0'
+         sh 'SUCCESSFUL = 0'        
+      }
+    }
     stage('Binary smoke tests') {
       steps {
-        "Preparing counters": {
-            sh 'FAILURES = 0'
-            sh 'SUCCESSFUL = 0'
-        }
         parallel(
           "Binary smoke tests": {
             echo 'Running binary smoke tests...'
