@@ -9,7 +9,6 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '#!/bin/bash -xe'
         sh 'gcc -v -g -Wall -c main.c && gcc -v -g -Wall -c rndnum.c && gcc -v -g -o cproj main.o rndnum.o'
       }
     }
@@ -57,9 +56,10 @@ pipeline {
     } // stage smoke tests
     stage('Feedback') {
       steps {
+        sh 'echo $FAILURES > env.failures && echo $SUCCESSFUL > env.successful'
         echo 'Test result:'
-        sh 'echo "Failures: $FAILURES"'
-        sh 'echo -n "Successful: " && echo $SUCCESSFUL'
+        //sh 'echo "Failures: $FAILURES"'
+        //sh 'echo -n "Successful: " && echo $SUCCESSFUL'
       } // steps
     } // stage error
   } // stages
