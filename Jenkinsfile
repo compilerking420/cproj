@@ -58,7 +58,7 @@ pipeline {
       steps {
         echo 'Test result:'
         sh 'echo "Failures: $FAILURES"'
-        sh 'echo "Successful: $SUCCESSFUL"'
+        sh 'echo -n "Successful: " && echo $SUCCESSFUL'
       } // steps
     } // stage error
   } // stages
