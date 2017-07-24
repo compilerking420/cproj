@@ -51,15 +51,15 @@ pipeline {
             sh './cproj'
             
           }
-        )
-      }
-    }
+        ) // Parallel
+      } // steps
+    } // stage smoke tests
     stage('error') {
       steps {
         echo 'Test result:'
-      }
-    }
-  }
+      } // stage
+    } // stages
+  
   environment {
     server = 'server'
   }
