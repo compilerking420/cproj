@@ -19,8 +19,8 @@ pipeline {
       }
     }
     stage('Binary smoke tests') {
-      int FAILURES = 0;
-      int SUCCESSFUL = 0;
+      sh '$FAILURES = 0'
+      sh '$SUCCESSFUL = 0'
       steps {
         parallel(
           "Binary smoke tests": {
@@ -30,7 +30,7 @@ pipeline {
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
-                       
+            sh 'if [ $? != 0 ]; then ((SUCCESSFUL++)); else ((FAILURES++)); fi'
           },
           "Test2": {
             sh './cproj'
