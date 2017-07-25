@@ -18,12 +18,6 @@ pipeline {
         fileExists 'cproj'
       }
     }
-    stage('Preparing test counters') {
-      steps{
-         sh 'export FAILURES=0'
-         sh 'export SUCCESSFUL=0'        
-      }
-    }
     stage('Binary smoke tests') {
       steps {
         parallel(
@@ -33,33 +27,25 @@ pipeline {
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
-            sh 'if [ $? -eq 0 ]; then echo "Successful run."; SUCCESSFUL=$((SUCCESSFUL+1)); else echo "Failed run."; FAILURES=$((FAILURES+1)); fi'
           },
           "Test2": {
             sh './cproj'
-            
           },
           "Test3": {
             sh './cproj'
-            
           },
           "Test4": {
             sh './cproj'
-            
           },
           "Test5": {
             sh './cproj'
-            
           }
         ) // Parallel
       } // steps
     } // stage smoke tests
     stage('Feedback') {
       steps {
-        sh 'echo $FAILURES > env.failures && echo $SUCCESSFUL > env.successful'
-        echo 'Test result:'
-        //sh 'echo "Failures: $FAILURES"'
-        //sh 'echo -n "Successful: " && echo $SUCCESSFUL'
+        echo 'Test finished.'
       } // steps
     } // stage error
   } // stages
