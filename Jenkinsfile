@@ -54,6 +54,11 @@ pipeline {
         echo 'Built, tested and deployed successfully.'
       }
     }
+    stage('') {
+      steps {
+        archiveArtifacts 'cproj'
+      }
+    }
   }
   environment {
     server = 'server'
