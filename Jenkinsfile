@@ -23,34 +23,44 @@ pipeline {
         parallel(
           "Binary smoke tests": {
             echo 'Running binary smoke tests...'
+            
           },
           "Test1": {
             echo 'test 1 running...'
             sh './cproj'
+            
           },
           "Test2": {
             sh './cproj'
+            
           },
           "Test3": {
             sh './cproj'
+            
           },
           "Test4": {
             sh './cproj'
+            
           },
           "Test5": {
             sh './cproj'
+            
           }
-        ) // Parallel
-      } // steps
-    } // stage smoke tests
+        )
+      }
+    }
     stage('Final') {
       steps {
         echo 'Built, tested and deployed successfully.'
-      } // steps
-    } // stage 
- } // stages
-
+      }
+    }
+    stage('Deploy') {
+      steps {
+        archiveArtifacts 'cproj'
+      }
+    }
+  }
   environment {
     server = 'server'
-  } // env
-} // Pipeline
+  }
+}
