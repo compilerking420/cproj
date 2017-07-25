@@ -54,7 +54,7 @@ pipeline {
         echo 'Built, tested and deployed successfully.'
       }
     }
-    stage('') {
+    stage('deploy artifacts') {
       steps {
         archiveArtifacts 'cproj'
       }
