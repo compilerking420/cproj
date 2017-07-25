@@ -53,6 +53,12 @@ pipeline {
       steps {
         echo 'Deploying binary and Jenkins log...'
         dir(path: '/var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/lastStableBuild/archive')
+        sh 'cp -v ../log .'
+        sh 'git init'
+        sh 'git add '
+        sh 'git add cproj log'
+        sh 'git commit -m "Commit by Jenkins"'
+        sh 'https://github.com/compilerking420/cproj-deploy.git
       }
     }
     stage('Final') {
