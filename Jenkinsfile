@@ -54,11 +54,6 @@ pipeline {
         echo 'Built, tested and deployed successfully.'
       }
     }
-    stage('Deploy') {
-      steps {
-        archiveArtifacts 'cproj jenkins.log'
-      }
-    }
   }
   environment {
     server = 'server'
