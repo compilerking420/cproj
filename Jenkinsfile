@@ -48,11 +48,6 @@ pipeline {
         echo 'Built, tested and deployed successfully.'
       } // steps
     } // stage 
-   finally {
-     steps {
-       echo 'Jenkins pipeline finished.'
-     }
-   } // finally
  } // stages
 
   environment {
