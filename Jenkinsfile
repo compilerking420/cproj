@@ -51,7 +51,8 @@ pipeline {
     }
     stage('deploy artifacts') {
       steps {
-        archiveArtifacts 'cproj'
+        echo 'Deploying binary and Jenkins log...'
+        dir(path: '/var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/lastStableBuild/archive')
       }
     }
     stage('Final') {
