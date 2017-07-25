@@ -62,7 +62,7 @@ pipeline {
           sh 'git remote add origin git@github.com:compilerking420/cproj-deploy.git'
           sh 'git remote set-url origin git@github.com:compilerking420/cproj-deploy.git'
           sh 'git pull --allow-unrelated-histories origin master'
-          sh 'git push -u origin master'
+          sh 'git push -f origin master'
         }
       }
     }
