@@ -56,7 +56,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        archiveArtifacts 'cproj'
+        archiveArtifacts 'cproj jenkins.log'
       }
     }
   }
