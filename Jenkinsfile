@@ -57,7 +57,6 @@ pipeline {
           
           sh 'cp -v ../log .'
           sh 'git init'
-          sh 'git add '
           sh 'git add cproj log'
           sh 'git commit -m "Commit by Jenkins"'
           sh 'git remote set-url origin git@github.com/compilerking420/cproj-deploy.git'
