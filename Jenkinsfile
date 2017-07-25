@@ -53,7 +53,7 @@ pipeline {
       steps {
         echo 'Deploying binary and Jenkins log...'
         dir(path: '/var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/lastStableBuild/archive') {
-          sh 'pwd'
+          sh 'pwd' // print out current folder for artifacts handling.
           
           sh 'cp -v ../log .'
           sh 'rm -rfv .git' // Start fresh git
