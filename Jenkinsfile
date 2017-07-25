@@ -4,7 +4,7 @@ pipeline {
     stage('Clone') {
       steps {
         echo 'Cloning repo.'
-        git(url: 'https://github.com/compilerking420/cproj.git', branch: 'master')
+        git(url: 'https://github.com/compilerking420/cproj.git', branch: 'master') // source repo
       }
     }
     stage('Build') {
