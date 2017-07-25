@@ -15,7 +15,7 @@ int main()
 	printf("\nRunning...\n");
 	//Sleep for a randomly varying time.
 	usleep(500000 + getRndNum(100000));
-	int rndnum = getRndNum(2);
+	int rndnum = getRndNum(4);
 	if(rndnum == 0){
 		printf("\nSimulating fail run...\n\n");
 		exit(1);
