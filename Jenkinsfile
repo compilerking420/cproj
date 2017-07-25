@@ -49,14 +49,14 @@ pipeline {
         )
       }
     }
-    stage('Final') {
-      steps {
-        echo 'Built, tested and deployed successfully.'
-      }
-    }
     stage('deploy artifacts') {
       steps {
         archiveArtifacts 'cproj'
+      }
+    }
+    stage('Final') {
+      steps {
+        echo 'Built, tested and deployed successfully.'
       }
     }
   }
