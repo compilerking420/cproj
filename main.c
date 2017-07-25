@@ -11,10 +11,10 @@ int main()
 	//Start randomizer
 	srand(time(NULL)); 
 	
-    usleep(500000);
+    	usleep(500000);
 	printf("\nRunning...\n");
 	//Sleep for a randomly varying time.
-	usleep(500000 + getRndNum(100000) );
+	usleep(500000 + getRndNum(100000));
 	int rndnum = getRndNum(2);
 	if(rndnum == 0){
 		printf("\nSimulating fail run...\n\n");
