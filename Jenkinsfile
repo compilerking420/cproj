@@ -43,12 +43,17 @@ pipeline {
         ) // Parallel
       } // steps
     } // stage smoke tests
-    stage('Feedback') {
+    stage('Final') {
       steps {
-        echo 'Test finished.'
+        echo 'Built, tested and deployed successfully.'
       } // steps
     } // stage error
   } // stages
+  finally {
+    steps {
+      echo 'Jenkins pipeline finished.'
+    }
+  }
   environment {
     server = 'server'
   } // env
