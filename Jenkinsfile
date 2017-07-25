@@ -54,15 +54,16 @@ pipeline {
         echo 'Deploying binary and Jenkins log...'
         dir(path: '/var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/lastStableBuild/archive') {
           sh 'pwd'
+          
+          sh 'cp -v ../log .'
+          sh 'git init'
+          sh 'git add '
+          sh 'git add cproj log'
+          sh 'git commit -m "Commit by Jenkins"'
+          sh 'git remote set-url origin git@github.com/compilerking420/cproj-deploy.git'
+          sh 'git pull --allow-unrelated-histories origin master'
+          sh 'git push -u origin master'
         }
-        sh 'cp -v ../log .'
-        sh 'git init'
-        sh 'git add '
-        sh 'git add cproj log'
-        sh 'git commit -m "Commit by Jenkins"'
-        sh 'git remote set-url origin git@github.com/compilerking420/cproj-deploy.git'
-        sh 'git pull --allow-unrelated-histories origin master'
-        sh 'git push -u origin master'
       }
     }
     stage('Final') {
