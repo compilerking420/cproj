@@ -55,7 +55,7 @@ pipeline {
         
         // Create artifact folder and copy artifacts.
         sh 'mkdir -pv /tmp/artifacts'
-        sh 'cp -v cproj /tmp/artifacts/' // Copy binary
+        sh 'cp -v README.md cproj /tmp/artifacts/' // Copy artifacts
         //sh 'cp -v ../log /tmp/artifacts/' // Copy other artifacts
         
         // Deploy artifacts to deploy repo
@@ -63,7 +63,7 @@ pipeline {
           sh 'pwd' // print out current folder for artifacts handling.
           sh 'rm -rfv .git' // Start fresh git
           sh 'git init' // Initnialize git
-          sh 'git add cproj' // *** Artifacts to push to deploy repo ***
+          sh 'git add cproj README.*' // *** Artifacts to push to deploy repo ***
           sh 'git commit -m "Commit by Jenkins"' // Commit message
           sh 'git remote add origin git@github.com:compilerking420/cproj-deploy.git' // Set origin path
           sh 'git remote set-url origin git@github.com:compilerking420/cproj-deploy.git' // Switch to git by ssh-key
