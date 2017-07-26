@@ -52,7 +52,7 @@ pipeline {
     stage('deploy artifacts') {
       steps {
         echo 'Deploying binary and Jenkins log...'
-        sh 'mkdir -v /tmp/artifacts'
+        sh 'mkdir -pv /tmp/artifacts'
         sh 'cp -v cproj /tmp/artifacts/'
         dir(path: '/tmp/artifacts') {
           sh 'pwd' // print out current folder for artifacts handling.
