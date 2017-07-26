@@ -52,11 +52,16 @@ pipeline {
     stage('deploy artifacts') {
       steps {
         echo 'Deploying binary and Jenkins log...'
+        
+        // Create artifact folder and copy artifacts.
         sh 'mkdir -pv /tmp/artifacts'
         sh 'cp -v cproj /tmp/artifacts/'
+        sh 'cp -v ../log /tmp/artifacts/'
+        
+        // Deploy artifacts to deploy repo
         dir(path: '/tmp/artifacts') {
           sh 'pwd' // print out current folder for artifacts handling.
-          sh 'cp -v /var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/`ls -dtr */ | tail -n 1`log .' // fetch log.
+          //sh 'cp -v /var/lib/jenkins/jobs/compilerking420/jobs/cproj/branches/master/builds/`ls -dtr */ | tail -n 1`log .' // fetch log.
           sh 'rm -rfv .git' // Start fresh git
           sh 'git init' // Initnialize git
           sh 'git add cproj log' // *** Artifacts to push to deploy repo ***
